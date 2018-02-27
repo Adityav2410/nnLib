@@ -4,13 +4,15 @@
  Only supports Multilayer perceptron
 
 ## Getting started with model
-
+```
 import numpy as np
 from nnLib.layers import Input, Dense, Output
 from nnLib.model import Model
+```
 
 
 ### Build model
+```
 def getModel():
     inputLayer = Input(nFeatures = 784 )
     dense1 = Dense(250, 'relu', name='Dense1')(inputLayer)
@@ -21,14 +23,17 @@ def getModel():
     model.compileModel(learning_Rate = 0.001)
     model.summary(verbose=True)
     return model
+```
 
 ### Train the model 
+```
 model.train(trainX, trainY)
+```
 
 function accepts one batch of trainX, and trainY and fits over that data. 
 trainY is the label and not one-hot vector
 
-
+```
 if __name__== "__main__":
     model = getModel()
     accuracyHistory = []
@@ -41,3 +46,4 @@ if __name__== "__main__":
             print "Iter: "+str(i+1)+"\t\t Loss: " + str(round(loss,5)) + "\t\t Accuracy: "+str(round(100*accuracy,2))
         lossHistory.append(loss)
         accuracyHistory.append(accuracy)
+```
